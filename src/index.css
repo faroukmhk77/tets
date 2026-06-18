@@ -11,36 +11,62 @@
   --color-accent: #C9A962;
   --color-text: #FFFFFF;
   --color-button: #C9A962;
+  /* Text with opacity */
+  --color-text-10: rgba(255, 255, 255, 0.1);
+  --color-text-20: rgba(255, 255, 255, 0.2);
+  --color-text-30: rgba(255, 255, 255, 0.3);
+  --color-text-40: rgba(255, 255, 255, 0.4);
+  --color-text-50: rgba(255, 255, 255, 0.5);
+  --color-text-60: rgba(255, 255, 255, 0.6);
+  --color-text-70: rgba(255, 255, 255, 0.7);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Map legacy bg classes to theme variables */
+  .bg-black { background-color: var(--color-bg); }
+  .bg-neutral-900 { background-color: var(--color-secondary); }
+  .bg-neutral-800 { background-color: var(--color-secondary); }
+  .bg-neutral-850 { background-color: var(--color-secondary); }
+  .bg-neutral-950 { background-color: var(--color-bg); }
+
+  /* Map legacy text classes to theme variables */
+  .text-cream { color: var(--color-text); }
+  .text-white { color: var(--color-text); }
+  .text-gold { color: var(--color-primary); }
+
+  /* Map legacy border classes */
+  .border-gold { border-color: var(--color-primary); }
+
+  /* Map legacy button classes */
+  .bg-gold { background-color: var(--color-button); }
+  .hover\:bg-gold:hover { background-color: var(--color-button); }
+  .hover\:text-gold:hover { color: var(--color-primary); }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Opacity text colors - use CSS custom properties that can be updated */
+@layer utilities {
+  .text-cream\/10 { color: var(--color-text-10); }
+  .text-cream\/20 { color: var(--color-text-20); }
+  .text-cream\/30 { color: var(--color-text-30); }
+  .text-cream\/40 { color: var(--color-text-40); }
+  .text-cream\/50 { color: var(--color-text-50); }
+  .text-cream\/60 { color: var(--color-text-60); }
+  .text-cream\/70 { color: var(--color-text-70); }
 }
 
-body {
-  background-color: var(--color-bg) !important;
-  color: var(--color-text) !important;
-  font-family: 'Inter', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Force theme colors on all backgrounds */
-.bg-black { background-color: var(--color-bg) !important; }
-.bg-neutral-900 { background-color: var(--color-secondary) !important; }
-.bg-neutral-800 { background-color: var(--color-secondary) !important; }
-.text-cream { color: var(--color-text) !important; }
-.text-white { color: var(--color-text) !important; }
-.border-gold { border-color: var(--color-primary) !important; }
-.bg-gold { background-color: var(--color-button) !important; }
-.text-gold { color: var(--color-primary) !important; }
-
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -51,13 +77,11 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
-  opacity: 0.3;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
-  opacity: 0.5;
+  background: var(--color-accent);
 }
 
 input, select, textarea {
@@ -70,6 +94,5 @@ img {
 
 ::selection {
   background: var(--color-primary);
-  opacity: 0.3;
-  color: var(--color-text);
+  color: var(--color-bg);
 }

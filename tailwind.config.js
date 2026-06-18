@@ -4,22 +4,34 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Theme semantic colors (CSS variables)
+        theme: {
+          bg: 'var(--color-bg)',
+          'bg-alt': 'var(--color-secondary)',
+          primary: 'var(--color-primary)',
+          accent: 'var(--color-accent)',
+          text: 'var(--color-text)',
+          'text-muted': 'var(--color-text)',
+          button: 'var(--color-button)',
+          border: 'var(--color-primary)',
+        },
+        // Legacy gold palette (keep for compatibility)
         gold: {
-          DEFAULT: 'var(--color-primary, #C9A96E)',
+          DEFAULT: 'var(--color-primary)',
           50: '#FBF7F0',
           100: '#F5EAD8',
           200: '#EBD5B1',
           300: '#DDBF86',
-          400: '#C9A96E',
+          400: 'var(--color-primary)',
           500: '#B8944A',
           600: '#9A7A3C',
           700: '#7A6030',
           800: '#5C4824',
           900: '#3E3018',
-          light: 'var(--color-primary, #C9A96E)',
         },
+        // Legacy cream palette (maps to text color)
         cream: {
-          DEFAULT: 'var(--color-text, #F5F0E8)',
+          DEFAULT: 'var(--color-text)',
           50: '#FDFCFA',
           100: '#FAF7F2',
           200: '#F5F0E8',
@@ -31,22 +43,19 @@ export default {
           800: '#6E5D4B',
           900: '#524538',
         },
-        neutral: {
-          50: '#FAFAFA',
-          100: '#F5F5F5',
-          200: '#E5E5E5',
-          300: '#D4D4D4',
-          400: '#A3A3A3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          750: '#333333',
-          800: 'var(--color-secondary, #262626)',
-          850: '#1a1a1a',
-          900: 'var(--color-secondary, #171717)',
-          950: 'var(--color-bg, #0a0a0a)',
-        },
-        black: 'var(--color-bg, #000000)',
+      },
+      backgroundColor: {
+        'theme-bg': 'var(--color-bg)',
+        'theme-secondary': 'var(--color-secondary)',
+        'theme-primary': 'var(--color-primary)',
+      },
+      textColor: {
+        'theme-text': 'var(--color-text)',
+        'theme-primary': 'var(--color-primary)',
+        'theme-accent': 'var(--color-accent)',
+      },
+      borderColor: {
+        'theme-border': 'var(--color-primary)',
       },
       fontFamily: {
         display: ['Georgia', 'Times New Roman', 'serif'],

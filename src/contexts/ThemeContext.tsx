@@ -31,6 +31,18 @@ const ThemeContext = createContext<ThemeContextType>({
   loading: true,
 });
 
+// Helper to convert hex to RGB
+function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ThemeColors>(defaultTheme);
   const [loading, setLoading] = useState(true);
@@ -66,6 +78,18 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       root.style.setProperty('--color-accent', theme.accentColor);
       root.style.setProperty('--color-text', theme.textColor);
       root.style.setProperty('--color-button', theme.buttonColor);
+
+      // Set opacity variants for text color
+      const rgb = hexToRgb(theme.textColor);
+      if (rgb) {
+        root.style.setProperty('--color-text-10', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.1)`);
+        root.style.setProperty('--color-text-20', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.2)`);
+        root.style.setProperty('--color-text-30', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.3)`);
+        root.style.setProperty('--color-text-40', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.4)`);
+        root.style.setProperty('--color-text-50', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5)`);
+        root.style.setProperty('--color-text-60', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.6)`);
+        root.style.setProperty('--color-text-70', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.7)`);
+      }
     }
   }, [theme, loading]);
 
