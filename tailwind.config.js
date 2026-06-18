@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         gold: {
-          DEFAULT: '#C9A96E',
+          DEFAULT: 'var(--color-primary, #C9A96E)',
           50: '#FBF7F0',
           100: '#F5EAD8',
           200: '#EBD5B1',
@@ -16,9 +16,10 @@ export default {
           700: '#7A6030',
           800: '#5C4824',
           900: '#3E3018',
+          light: 'var(--color-primary, #C9A96E)',
         },
         cream: {
-          DEFAULT: '#F5F0E8',
+          DEFAULT: 'var(--color-text, #F5F0E8)',
           50: '#FDFCFA',
           100: '#FAF7F2',
           200: '#F5F0E8',
@@ -30,15 +31,22 @@ export default {
           800: '#6E5D4B',
           900: '#524538',
         },
-        // Dynamic theme colors (CSS variables)
-        theme: {
-          bg: 'var(--color-bg)',
-          primary: 'var(--color-primary)',
-          secondary: 'var(--color-secondary)',
-          accent: 'var(--color-accent)',
-          text: 'var(--color-text)',
-          button: 'var(--color-button)',
+        neutral: {
+          50: '#FAFAFA',
+          100: '#F5F5F5',
+          200: '#E5E5E5',
+          300: '#D4D4D4',
+          400: '#A3A3A3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          750: '#333333',
+          800: 'var(--color-secondary, #262626)',
+          850: '#1a1a1a',
+          900: 'var(--color-secondary, #171717)',
+          950: 'var(--color-bg, #0a0a0a)',
         },
+        black: 'var(--color-bg, #000000)',
       },
       fontFamily: {
         display: ['Georgia', 'Times New Roman', 'serif'],

@@ -24,28 +24,40 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Force theme colors on all backgrounds */
+.bg-black { background-color: var(--color-bg) !important; }
+.bg-neutral-900 { background-color: var(--color-secondary) !important; }
+.bg-neutral-800 { background-color: var(--color-secondary) !important; }
+.text-cream { color: var(--color-text) !important; }
+.text-white { color: var(--color-text) !important; }
+.border-gold { border-color: var(--color-primary) !important; }
+.bg-gold { background-color: var(--color-button) !important; }
+.text-gold { color: var(--color-primary) !important; }
 
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C9A96E44;
+  background: var(--color-primary);
+  opacity: 0.3;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C9A96E88;
+  background: var(--color-primary);
+  opacity: 0.5;
 }
 
 input, select, textarea {
@@ -57,6 +69,7 @@ img {
 }
 
 ::selection {
-  background: #C9A96E44;
-  color: #F5F0E8;
+  background: var(--color-primary);
+  opacity: 0.3;
+  color: var(--color-text);
 }
