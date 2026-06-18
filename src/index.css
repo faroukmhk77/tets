@@ -4,6 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-bg: #000000;
+  --color-primary: #C9A962;
+  --color-secondary: #1a1a1a;
+  --color-accent: #C9A962;
+  --color-text: #FFFFFF;
+  --color-button: #C9A962;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,8 +24,8 @@ html {
 }
 
 body {
-  background-color: #000;
-  color: #F5F0E8;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

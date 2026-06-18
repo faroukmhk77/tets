@@ -30,6 +30,15 @@ export default {
           800: '#6E5D4B',
           900: '#524538',
         },
+        // Dynamic theme colors (CSS variables)
+        theme: {
+          bg: 'var(--color-bg)',
+          primary: 'var(--color-primary)',
+          secondary: 'var(--color-secondary)',
+          accent: 'var(--color-accent)',
+          text: 'var(--color-text)',
+          button: 'var(--color-button)',
+        },
       },
       fontFamily: {
         display: ['Georgia', 'Times New Roman', 'serif'],

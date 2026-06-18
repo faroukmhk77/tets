@@ -114,10 +114,11 @@ export default function CheckoutPage() {
           customer_phone: sanitizedPhone,
           city: sanitizedCity,
           address: sanitizedAddress,
-          size: item.size,
+          selected_size: item.size,
           quantity: item.quantity,
           total_price: item.price * item.quantity,
           status: 'new',
+          stock_deducted: false,
         });
       }
 

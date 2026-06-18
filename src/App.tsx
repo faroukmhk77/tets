@@ -5,6 +5,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import { CartProvider } from './contexts/CartContext';
 import { WishlistProvider } from './contexts/WishlistContext';
 import { AdminProvider } from './contexts/AdminContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import WhatsAppFloat from './components/layout/WhatsAppFloat';
@@ -35,42 +36,44 @@ export default function App() {
     <HelmetProvider>
       <BrowserRouter>
         <LanguageProvider>
-          <CartProvider>
-            <WishlistProvider>
-              <AdminProvider>
-                <ErrorBoundary>
-                  <div className="min-h-screen bg-black text-cream">
-                    <Navbar />
-                    <CartDrawer />
-                    <main>
-                      <Suspense fallback={<LoadingSpinner />}>
-                        <Routes>
-                          <Route path="/" element={<HomePage />} />
-                          <Route path="/shop" element={<ShopPage />} />
-                          <Route path="/product/:slug" element={<ProductPage />} />
-                          <Route path="/checkout" element={<CheckoutPage />} />
-                          <Route path="/wishlist" element={<WishlistPage />} />
-                          <Route path="/about" element={<AboutPage />} />
-                          <Route path="/contact" element={<ContactPage />} />
-                          <Route path="/faq" element={<FAQPage />} />
-                          <Route path="/admin/login" element={<AdminLogin />} />
-                          <Route path="/admin/setup" element={<AdminSetup onComplete={() => window.location.href = '/admin/login'} />} />
-                          <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
-                            <Route path="products" element={<AdminProducts />} />
-                            <Route path="orders" element={<AdminOrders />} />
-                            <Route path="instagram" element={<AdminInstagram />} />
-                            <Route path="settings" element={<AdminSettings />} />
-                          </Route>
-                        </Routes>
-                      </Suspense>
-                    </main>
-                    <Footer />
-                    <WhatsAppFloat />
-                  </div>
-                </ErrorBoundary>
-              </AdminProvider>
-            </WishlistProvider>
-          </CartProvider>
+          <ThemeProvider>
+            <CartProvider>
+              <WishlistProvider>
+                <AdminProvider>
+                  <ErrorBoundary>
+                    <div className="min-h-screen bg-theme-bg text-cream">
+                      <Navbar />
+                      <CartDrawer />
+                      <main>
+                        <Suspense fallback={<LoadingSpinner />}>
+                          <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/shop" element={<ShopPage />} />
+                            <Route path="/product/:slug" element={<ProductPage />} />
+                            <Route path="/checkout" element={<CheckoutPage />} />
+                            <Route path="/wishlist" element={<WishlistPage />} />
+                            <Route path="/about" element={<AboutPage />} />
+                            <Route path="/contact" element={<ContactPage />} />
+                            <Route path="/faq" element={<FAQPage />} />
+                            <Route path="/admin/login" element={<AdminLogin />} />
+                            <Route path="/admin/setup" element={<AdminSetup onComplete={() => window.location.href = '/admin/login'} />} />
+                            <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+                              <Route path="products" element={<AdminProducts />} />
+                              <Route path="orders" element={<AdminOrders />} />
+                              <Route path="instagram" element={<AdminInstagram />} />
+                              <Route path="settings" element={<AdminSettings />} />
+                            </Route>
+                          </Routes>
+                        </Suspense>
+                      </main>
+                      <Footer />
+                      <WhatsAppFloat />
+                    </div>
+                  </ErrorBoundary>
+                </AdminProvider>
+              </WishlistProvider>
+            </CartProvider>
+          </ThemeProvider>
         </LanguageProvider>
       </BrowserRouter>
     </HelmetProvider>
