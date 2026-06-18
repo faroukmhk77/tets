@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vintage-sneakers-assouli.ma/sitemap.xml
